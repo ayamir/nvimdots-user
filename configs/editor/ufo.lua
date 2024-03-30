@@ -42,5 +42,8 @@ return function()
 				jumpBot = "]",
 			},
 		},
+		provider_selector = function(bufnr, filetype, buftype)
+			return ""
+		end,
 	})
 end
