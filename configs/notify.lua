@@ -1,4 +1,4 @@
 return {
 	stages = "slide",
-	timeout = 1000,
+	timeout = 500,
 }
