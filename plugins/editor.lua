@@ -11,6 +11,13 @@ editor["max397574/better-escape.nvim"] = {
 editor["chrisgrieser/nvim-spider"] = {
 	lazy = true,
 	event = { "CursorHold", "CursorHoldI" },
+	dependencies = {
+		"theHamsta/nvim_rocks",
+		build = "pip3 install --user hererocks && python3 -mhererocks . -j2.1.0-beta3 -r3.0.0 && cp nvim_rocks.lua lua",
+		config = function()
+			require("nvim_rocks").ensure_installed("luautf8")
+		end,
+	},
 }
 editor["kevinhwang91/nvim-ufo"] = {
 	lazy = true,
@@ -26,6 +33,11 @@ editor["kevinhwang91/nvim-ufo"] = {
 		vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
 		vim.o.foldlevelstart = 99
 		vim.o.foldenable = true
+	end,
+}
+editor["keaising/im-select.nvim"] = {
+	config = function()
+		require("im_select").setup({})
 	end,
 }
 
