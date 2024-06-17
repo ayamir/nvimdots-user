@@ -19,26 +19,5 @@ editor["chrisgrieser/nvim-spider"] = {
 		end,
 	},
 }
-editor["kevinhwang91/nvim-ufo"] = {
-	lazy = true,
-	event = { "BufReadPost" },
-	dependencies = {
-		{ "luukvbaal/statuscol.nvim", branch = "0.10", config = require("configs.editor.statuscol") },
-		{ "kevinhwang91/promise-async" },
-	},
-	config = require("configs.editor.ufo"),
-	init = function()
-		vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
-		vim.o.foldcolumn = "1" -- '0' is not bad
-		vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
-		vim.o.foldlevelstart = 99
-		vim.o.foldenable = true
-	end,
-}
-editor["keaising/im-select.nvim"] = {
-	config = function()
-		require("im_select").setup({})
-	end,
-}
 
 return editor

@@ -8,19 +8,7 @@ mappings["plug_map"] = {}
 -- NOTE: Make sure to include `:with_buffer(buf)` to limit the scope of your mappings.
 ---@param buf number @The effective bufnr
 mappings["lsp"] = function(buf)
-	return {
-		-- Example
-		["n|K"] = map_callback(function()
-				local winid = require("ufo").peekFoldedLinesUnderCursor()
-				if not winid then
-					-- vim.lsp.buf.hover()
-					vim.cmd([[Lspsaga hover_doc]])
-				end
-			end)
-			:with_silent()
-			:with_buffer(buf)
-			:with_desc("lsp: Show doc"),
-	}
+	return {}
 end
 
 return mappings
