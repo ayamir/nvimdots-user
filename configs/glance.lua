@@ -1,0 +1,5 @@
+return {
+	folds = {
+		folded = false,
+	},
+}

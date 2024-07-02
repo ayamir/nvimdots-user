@@ -22,6 +22,8 @@ settings["server_formatting_block_list"] = {
 	gopls = true,
 }
 
-settings["disabled_plugins"] = {}
+settings["disabled_plugins"] = {
+	"Jint-lzxy/lsp_signature.nvim",
+}
 
 return settings
