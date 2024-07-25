@@ -3,7 +3,7 @@ return {
 		offsets = {
 			{
 				filetype = "neo-tree",
-				text = "File Explorer",
+				text = "NeoTree",
 				text_align = "center",
 				padding = 0,
 			},
