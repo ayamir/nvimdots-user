@@ -7,8 +7,8 @@ return {
 	sources = {
 		path = {
 			relative_to = function(_, win)
-				local filename = vim.api.nvim_buf_get_name(0)
-				return vim.fn.fnamemodify(filename, ":p:h:h")
+				local ok, cwd = pcall(vim.fn.getcwd, win)
+				return ok and cwd or vim.fn.getcwd()
 			end,
 		},
 		terminal = {

@@ -10,13 +10,7 @@ mappings["plug_map"] = {}
 ---@param buf number @The effective bufnr
 mappings["lsp"] = function(buf)
 	return {
-		["n|gr"] = map_callback(function()
-				return ":IncRename " .. vim.fn.expand("<cword>")
-			end)
-			:with_expr()
-			:with_silent()
-			:with_buffer(buf)
-			:with_desc("lsp: Rename in file range"),
+		["n|go"] = map_cr("Lspsaga outline"):with_silent():with_buffer(buf):with_desc("lsp: Toggle outline"),
 	}
 end
 

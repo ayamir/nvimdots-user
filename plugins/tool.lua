@@ -38,9 +38,18 @@ tool["nvim-neotest/neotest"] = {
 		},
 	},
 	config = function()
+		local gotest_cfg = { -- Specify configuration
+			go_test_args = {
+				"-v",
+				"-race",
+				"-count=1",
+				"-timeout=60s",
+				"-gcflags=all=-l",
+			},
+		}
 		require("neotest").setup({
 			adapters = {
-				require("neotest-golang"), -- Registration
+				require("neotest-golang")(gotest_cfg),
 			},
 		})
 	end,

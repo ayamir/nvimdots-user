@@ -24,6 +24,11 @@ settings["server_formatting_block_list"] = {
 
 settings["disabled_plugins"] = {
 	"Jint-lzxy/lsp_signature.nvim",
+	"stevearc/aerial.nvim",
+}
+
+settings["lsp_deps"] = {
+	"typos_lsp",
 }
 
 settings["gui_config"] = {

@@ -6,7 +6,7 @@ editor["olimorris/persisted.nvim"] = {
 editor["max397574/better-escape.nvim"] = {
 	lazy = true,
 	event = { "CursorHold", "CursorHoldI" },
-	config = require("configs.editor.better-escape"),
+	config = true,
 }
 editor["chrisgrieser/nvim-spider"] = {
 	lazy = true,

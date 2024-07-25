@@ -45,7 +45,7 @@ return {
 		:with_nowait()
 		:with_silent()
 		:with_desc("test: test last run"),
-	["n|<leader>to"] = map_cu("Neotest output")
+	["n|<leader>to"] = map_cu("Neotest output-panel")
 		:with_noremap()
 		:with_nowait()
 		:with_silent()
