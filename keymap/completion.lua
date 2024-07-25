@@ -9,9 +9,7 @@ mappings["plug_map"] = {}
 -- NOTE: Make sure to include `:with_buffer(buf)` to limit the scope of your mappings.
 ---@param buf number @The effective bufnr
 mappings["lsp"] = function(buf)
-	return {
-		["n|go"] = map_cr("Lspsaga outline"):with_silent():with_buffer(buf):with_desc("lsp: Toggle outline"),
-	}
+	return {}
 end
 
 return mappings

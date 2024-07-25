@@ -1,7 +1,7 @@
 return {
 	integrations = {
-		alpha = true,
-		indent_blankline = { enabled = true, colored_indent_levels = true },
-		leap = true,
+		neotest = true,
+		nvimtree = false,
+		neotree = { enabled = true, show_root = true, transparent_panel = false },
 	},
 }

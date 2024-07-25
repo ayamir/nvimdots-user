@@ -24,7 +24,7 @@ settings["server_formatting_block_list"] = {
 
 settings["disabled_plugins"] = {
 	"Jint-lzxy/lsp_signature.nvim",
-	"stevearc/aerial.nvim",
+	"nvim-tree/nvim-tree.lua",
 }
 
 settings["lsp_deps"] = {
