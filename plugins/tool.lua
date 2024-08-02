@@ -54,5 +54,18 @@ tool["nvim-neotest/neotest"] = {
 		})
 	end,
 }
+local leet_arg = "lc"
+tool["kawre/leetcode.nvim"] = {
+	lazy = leet_arg ~= vim.fn.argv()[1],
+	opts = {
+		arg = leet_arg,
+		lang = "cpp",
+		cn = { -- leetcode.cn
+			enabled = true, ---@type boolean
+			translator = false, ---@type boolean
+			translate_problems = true, ---@type boolean
+		}, -- configuration goes here
+	},
+}
 
 return tool
