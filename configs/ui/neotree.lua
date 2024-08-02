@@ -75,7 +75,7 @@ return function()
 			-- If you don't want to use these columns, you can set `enabled = false` for each of them individually
 			file_size = {
 				enabled = true,
-				required_width = 40, -- min width of window required to show this column
+				required_width = 64, -- min width of window required to show this column
 			},
 			type = {
 				enabled = true,
