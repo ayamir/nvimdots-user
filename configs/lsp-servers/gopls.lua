@@ -31,7 +31,7 @@ return {
 			staticcheck = false,
 			semanticTokens = true,
 			noSemanticString = true,
-			usePlaceholders = true,
+			usePlaceholders = false,
 			completeUnimported = true,
 			symbolMatcher = "Fuzzy",
 			buildFlags = { "-tags", "integration" },
