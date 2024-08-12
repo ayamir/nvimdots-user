@@ -50,4 +50,10 @@ return {
 		:with_nowait()
 		:with_silent()
 		:with_desc("test: toggle test output panel"),
+
+	["n|<leader>Lr"] = map_cu("Leet run"):with_noremap():with_nowait():with_silent():with_desc("leetcode: run"),
+	["n|<leader>Ls"] = map_cu("Leet submit"):with_noremap():with_nowait():with_silent():with_desc("leetcode: submit"),
+	["n|<leader>Ll"] = map_cu("Leet list"):with_noremap():with_nowait():with_silent():with_desc("leetcode: list"),
+	["n|<leader>Ld"] = map_cu("Leet desc"):with_noremap():with_nowait():with_silent():with_desc("leetcode: desc"),
+	["n|<leader>Lm"] = map_cu("Leet menu"):with_noremap():with_nowait():with_silent():with_desc("leetcode: menu"),
 }
