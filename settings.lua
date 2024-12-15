@@ -16,7 +16,7 @@ settings["transparent_background"] = false
 
 settings["load_big_files_faster"] = true
 
-settings["lsp_inlayhints"] = false
+settings["lsp_inlayhints"] = true
 
 settings["server_formatting_block_list"] = {
 	gopls = true,
