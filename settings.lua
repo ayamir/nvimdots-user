@@ -6,7 +6,7 @@ settings["use_ssh"] = false
 
 settings["use_copilot"] = false
 
-settings["colorscheme"] = "catppuccin"
+settings["colorscheme"] = "onenord"
 
 settings["format_modifications_only"] = false
 

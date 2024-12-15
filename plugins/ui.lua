@@ -30,12 +30,10 @@ ui["nvim-neo-tree/neo-tree.nvim"] = {
 	},
 	config = require("user.configs.ui.neotree"),
 }
-ui["gbprod/nord.nvim"] = {
-	lazy = false,
+ui["rmehri01/onenord.nvim"] = {
+	lazy = true,
 	priority = 1000,
-	config = function()
-		require("nord").setup({})
-	end,
+	config = true,
 }
 
 return ui
