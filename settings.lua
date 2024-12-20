@@ -6,7 +6,7 @@ settings["use_ssh"] = false
 
 settings["use_copilot"] = false
 
-settings["colorscheme"] = "nord"
+settings["colorscheme"] = "everforest"
 
 settings["format_modifications_only"] = false
 
