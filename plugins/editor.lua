@@ -12,5 +12,13 @@ editor["chrisgrieser/nvim-spider"] = {
 	lazy = true,
 	event = { "CursorHold", "CursorHoldI" },
 }
+editor["kylechui/nvim-surround"] = {
+	lazy = true,
+	version = "*",
+	event = { "CursorHoldI", "CursorHold" },
+	config = function()
+		require("nvim-surround").setup()
+	end,
+}
 
 return editor
