@@ -38,11 +38,20 @@ ui["gbprod/nord.nvim"] = {
 	end,
 }
 ui["neanias/everforest-nvim"] = {
-	version = false,
-	lazy = false,
-	priority = 1000,
+	lazy = true,
 	config = function()
-		require("everforest").setup({})
+		require("everforest").setup({
+			italics = true,
+			on_highlights = function(hl, palette)
+				-- The default highlights for TSBoolean is linked to `Purple` which is fg
+				-- purple and bg none. If we want to just add a bold style to the existing,
+				-- we need to have the existing *and* the bold style. (We could link to
+				-- `PurpleBold` here otherwise.)
+				hl.Constant = { fg = palette.aqua, bg = palette.none, bold = true }
+				hl.Function = { fg = palette.green, bg = palette.none, italic = true }
+				hl.Keyword = { fg = palette.red, bg = palette.none, italic = true }
+			end,
+		})
 	end,
 }
 
