@@ -24,6 +24,7 @@ settings["server_formatting_block_list"] = {
 
 settings["disabled_plugins"] = {
 	"nvim-tree/nvim-tree.lua",
+	"goolord/alpha-nvim",
 }
 
 settings["lsp_deps"] = {
