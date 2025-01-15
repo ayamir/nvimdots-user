@@ -1,15 +1,5 @@
 return function()
 	require("neo-tree").setup({
-		source_selector = {
-			winbar = true,
-			sources = {
-				{ source = "filesystem" },
-				{ source = "document_symbols" },
-				{ source = "git_status" },
-			},
-			content_layout = "center", -- only with `tabs_layout` = "equal", "focus"
-			tabs_layout = "equal", -- start, end, center, equal, focus
-		},
 		sources = {
 			"filesystem",
 			"document_symbols",
@@ -19,7 +9,7 @@ return function()
 		popup_border_style = "rounded",
 		enable_git_status = true,
 		enable_diagnostics = true,
-		open_files_do_not_replace_types = { "terminal", "trouble", "qf" }, -- when opening files, do not use windows containing these filetypes or buftypes
+		open_files_do_not_replace_types = { "terminal", "trouble", "qf", "edgy" },
 		sort_case_insensitive = false, -- used when sorting files and directories in the tree
 		default_component_configs = {
 			container = {
@@ -103,10 +93,6 @@ return function()
 			mapping_options = {
 				noremap = true,
 				nowait = true,
-			},
-			mappings = {
-				["<S-Tab>"] = "prev_source",
-				["<Tab>"] = "next_source",
 			},
 		},
 		nesting_rules = {},

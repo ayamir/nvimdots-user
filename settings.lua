@@ -36,6 +36,32 @@ settings["gui_config"] = {
 	font_size = 13,
 }
 
+settings["treesitter_deps"] = function()
+	return {
+		"bash",
+		"c",
+		"cpp",
+		"css",
+		"go",
+		"gomod",
+		"html",
+		"javascript",
+		"json",
+		"jsonc",
+		-- "latex",
+		"lua",
+		"make",
+		"markdown",
+		"markdown_inline",
+		"python",
+		"rust",
+		"typescript",
+		"vimdoc",
+		"vue",
+		"yaml",
+	}
+end
+
 settings["neovide_config"] = {
 	no_idle = true,
 	refresh_rate = 120,

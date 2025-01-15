@@ -13,12 +13,6 @@ return {
 				text_align = "center",
 				padding = 0,
 			},
-			{
-				filetype = "aerial",
-				text = "Symbol Outline",
-				text_align = "center",
-				padding = 0,
-			},
 		},
 	},
 }
