@@ -9,7 +9,13 @@ mappings["plug_map"] = {}
 -- NOTE: Make sure to include `:with_buffer(buf)` to limit the scope of your mappings.
 ---@param buf number @The effective bufnr
 mappings["lsp"] = function(buf)
-	return {}
+	return {
+		["n|<leader>fl"] = map_cr("Telescope lsp_document_symbols")
+			:with_noremap()
+			:with_nowait()
+			:with_silent()
+			:with_desc("tool: Lsp symbols"),
+	}
 end
 
 return mappings

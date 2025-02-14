@@ -1,4 +1,15 @@
 return {
+	keys = {
+		["<S-Tab>"] = function(win)
+			win:toggle()
+		end,
+		["<A-i>"] = function(win)
+			win:next({ focus = true })
+		end,
+		["<A-o>"] = function(win)
+			win:prev({ focus = true })
+		end,
+	},
 	left = {
 		{
 			ft = "neo-tree",
