@@ -54,5 +54,15 @@ ui["neanias/everforest-nvim"] = {
 		})
 	end,
 }
+ui["Mofiqul/vscode.nvim"] = {
+	lazy = true,
+	config = function()
+		require("vscode").setup({
+			style = "light",
+			italic_comments = true,
+			underline_links = true,
+		})
+	end,
+}
 
 return ui
