@@ -30,7 +30,7 @@ return {
 		gopls = {
 			staticcheck = false,
 			semanticTokens = true,
-			usePlaceholders = true,
+			usePlaceholders = false,
 			completeUnimported = true,
 			symbolMatcher = "Fuzzy",
 			buildFlags = { "-tags", "integration" },
