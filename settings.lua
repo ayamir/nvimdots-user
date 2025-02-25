@@ -12,6 +12,8 @@ settings["format_modifications_only"] = false
 
 settings["format_disabled_dirs"] = {}
 
+settings["background"] = "light"
+
 settings["transparent_background"] = false
 
 settings["load_big_files_faster"] = true
