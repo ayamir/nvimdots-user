@@ -58,7 +58,6 @@ ui["Mofiqul/vscode.nvim"] = {
 	lazy = true,
 	config = function()
 		require("vscode").setup({
-			style = "light",
 			italic_comments = true,
 			underline_links = true,
 		})
