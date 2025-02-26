@@ -54,7 +54,7 @@ ui["neanias/everforest-nvim"] = {
 		})
 	end,
 }
-ui["Mofiqul/vscode.nvim"] = {
+ui["ayamir/vscode.nvim"] = {
 	lazy = true,
 	config = function()
 		require("vscode").setup({
