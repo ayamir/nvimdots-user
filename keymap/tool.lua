@@ -4,6 +4,12 @@ local map_cu = bind.map_cu
 local map_callback = bind.map_callback
 
 return {
+	["n|<Esc>p"] = map_callback(function()
+			require("search").open({ collection = "file" })
+		end)
+		:with_noremap()
+		:with_silent()
+		:with_desc("tool: Find files"),
 	["n|<leader>tc"] = map_callback(function()
 			require("neotest").run.run()
 		end)
