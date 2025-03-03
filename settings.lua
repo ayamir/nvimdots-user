@@ -25,6 +25,7 @@ settings["server_formatting_block_list"] = {
 }
 
 settings["disabled_plugins"] = {
+	"folke/flash.nvim",
 	"nvim-tree/nvim-tree.lua",
 	"goolord/alpha-nvim",
 }
