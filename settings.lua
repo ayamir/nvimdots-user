@@ -4,7 +4,7 @@ local settings = {}
 -- Examples
 settings["use_ssh"] = false
 
-settings["use_copilot"] = false
+settings["use_copilot"] = true
 
 settings["colorscheme"] = "vscode"
 
