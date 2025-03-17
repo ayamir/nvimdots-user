@@ -37,6 +37,9 @@ return {
 			semanticTokenTypes = {
 				string = false,
 			},
+			analyses = {
+				modernize = false,
+			},
 			codelenses = {
 				generate = true,
 				gc_details = true,
