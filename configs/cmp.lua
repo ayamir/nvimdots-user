@@ -90,8 +90,10 @@ return function()
 				vim_item.kind =
 					string.format(" %s  %s", lspkind_icons[vim_item.kind] or icons.cmp.undefined, vim_item.kind or "")
 
+				-- set up labels for completion entries
 				vim_item.menu = setmetatable({
 					cmp_tabnine = "[TN]",
+					marscode = "[MARS]",
 					copilot = "[CPLT]",
 					buffer = "[BUF]",
 					orgmode = "[ORG]",
@@ -109,10 +111,16 @@ return function()
 					end,
 				})[entry.source.name]
 
+				-- cut down long results
 				local label = vim_item.abbr
 				local truncated_label = vim.fn.strcharpart(label, 0, 80)
 				if truncated_label ~= label then
 					vim_item.abbr = truncated_label .. "..."
+				end
+
+				-- deduplicate results from nvim_lsp
+				if entry.source.name == "nvim_lsp" then
+					vim_item.dup = 0
 				end
 
 				return vim_item
@@ -170,13 +178,14 @@ return function()
 		-- You should specify your *installed* sources.
 		sources = {
 			{ name = "nvim_lsp", max_item_count = 350 },
-			-- { name = "nvim_lua" },
+			{ name = "nvim_lua" },
 			{ name = "luasnip" },
 			{ name = "path" },
-			-- { name = "treesitter" },
-			-- { name = "spell" },
+			{ name = "treesitter" },
+			{ name = "spell" },
 			{ name = "tmux" },
-			-- { name = "orgmode" },
+			{ name = "orgmode" },
+			{ name = "marscode" },
 			{
 				name = "buffer",
 				option = {
@@ -185,10 +194,15 @@ return function()
 					end,
 				},
 			},
-			-- { name = "latex_symbols" },
-			-- { name = "copilot" },
+			{ name = "latex_symbols" },
+			{ name = "copilot" },
 			-- { name = "codeium" },
 			-- { name = "cmp_tabnine" },
+		},
+		experimental = {
+			ghost_text = {
+				hl_group = "Whitespace",
+			},
 		},
 	})
 end
