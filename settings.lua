@@ -4,15 +4,15 @@ local settings = {}
 -- Examples
 settings["use_ssh"] = false
 
-settings["use_copilot"] = false
+settings["use_copilot"] = true
 
-settings["colorscheme"] = "catppuccin"
+settings["colorscheme"] = "vscode"
 
 settings["format_modifications_only"] = false
 
 settings["format_disabled_dirs"] = {}
 
-settings["background"] = "dark"
+settings["background"] = "light"
 
 settings["transparent_background"] = false
 
