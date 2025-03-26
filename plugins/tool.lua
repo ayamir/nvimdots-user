@@ -17,20 +17,24 @@ tool["nvim-neotest/neotest"] = {
 		discovery = {
 			-- Drastically improve performance in ginormous projects by
 			-- only AST-parsing the currently opened buffer.
-			enabled = true,
+			enabled = false,
 			-- Number of workers to parse files concurrently.
 			-- A value of 0 automatically assigns number based on CPU.
 			-- Set to 1 if experiencing lag.
-			concurrent = 0,
+			concurrent = 1,
 		},
 		running = {
 			-- Run tests concurrently when an adapter provides multiple commands to run.
 			concurrent = true,
 		},
-		quickfix = {
-			open = function()
-				vim.cmd("Trouble quickfix")
-			end,
+		summary = {
+			-- Enable/disable animation of icons.
+			animated = false,
+		},
+		output = {
+			open_on_run = true, -- 运行时打开输出窗口
+			split = "belowright", -- 输出窗口的位置
+			-- 其他输出配置...
 		},
 	},
 	config = function()
