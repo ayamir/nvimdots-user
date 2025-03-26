@@ -32,4 +32,22 @@ return {
 			end,
 		},
 	},
+	bottom = {
+		{ ft = "qf", size = { height = 0.3 } },
+		{ ft = "neotest-output-panel", size = { height = 0.4 } },
+		{
+			ft = "toggleterm",
+			size = { height = 0.3 },
+			filter = function(_, win)
+				return vim.w[win].relative == ""
+			end,
+		},
+		{
+			ft = "help",
+			size = { height = 0.3 },
+			filter = function(buf)
+				return vim.bo[buf].buftype == "help"
+			end,
+		},
+	},
 }
