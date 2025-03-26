@@ -6,7 +6,7 @@ settings["use_ssh"] = false
 
 settings["use_copilot"] = false
 
-settings["colorscheme"] = "vscode"
+settings["colorscheme"] = "catppuccin"
 
 settings["format_modifications_only"] = false
 
@@ -26,7 +26,6 @@ settings["server_formatting_block_list"] = {
 
 settings["disabled_plugins"] = {
 	"folke/flash.nvim",
-	"nvim-tree/nvim-tree.lua",
 	"goolord/alpha-nvim",
 }
 
