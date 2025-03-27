@@ -13,46 +13,17 @@ tool["nvim-neotest/neotest"] = {
 		"nvim-treesitter/nvim-treesitter",
 		"fredrikaverpil/neotest-golang",
 	},
+	config = require("user.configs.tool.neotest"),
+}
+tool["lowitea/aw-watcher.nvim"] = {
+	lazy = true,
+	event = "VeryLazy",
 	opts = {
-		discovery = {
-			-- Drastically improve performance in ginormous projects by
-			-- only AST-parsing the currently opened buffer.
-			enabled = false,
-			-- Number of workers to parse files concurrently.
-			-- A value of 0 automatically assigns number based on CPU.
-			-- Set to 1 if experiencing lag.
-			concurrent = 1,
-		},
-		running = {
-			-- Run tests concurrently when an adapter provides multiple commands to run.
-			concurrent = true,
-		},
-		summary = {
-			-- Enable/disable animation of icons.
-			animated = false,
-		},
-		output = {
-			open_on_run = true, -- 运行时打开输出窗口
-			split = "belowright", -- 输出窗口的位置
-			-- 其他输出配置...
+		aw_server = {
+			host = "127.0.0.1",
+			port = 5600,
 		},
 	},
-	config = function()
-		local gotest_cfg = { -- Specify configuration
-			go_test_args = {
-				"-v",
-				"-race",
-				"-count=1",
-				"-timeout=60s",
-				"-gcflags=all=-l",
-			},
-		}
-		require("neotest").setup({
-			adapters = {
-				require("neotest-golang")(gotest_cfg),
-			},
-		})
-	end,
 }
 local leet_arg = "lc"
 tool["kawre/leetcode.nvim"] = {
