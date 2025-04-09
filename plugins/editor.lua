@@ -20,15 +20,6 @@ editor["kylechui/nvim-surround"] = {
 		require("nvim-surround").setup()
 	end,
 }
-editor["jake-stewart/auto-cmdheight.nvim"] = {
-	lazy = false,
-	opts = {
-		max_lines = 5,
-		duration = 2,
-		remove_on_key = true,
-		clear_always = false,
-	},
-}
 editor["heilgar/bookmarks.nvim"] = {
 	lazy = true,
 	cmd = {
