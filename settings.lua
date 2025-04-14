@@ -22,7 +22,7 @@ settings["lsp_inlayhints"] = false
 
 settings["diagnostics_virtual_text"] = false
 
-settings["diagnostics_virtual_lines"] = true
+settings["diagnostics_virtual_lines"] = false
 
 settings["server_formatting_block_list"] = {
 	gopls = true,
