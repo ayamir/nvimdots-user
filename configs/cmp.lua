@@ -1,23 +1,4 @@
 return function()
-	local icons = {
-		kind = require("modules.utils.icons").get("kind"),
-		type = require("modules.utils.icons").get("type"),
-		cmp = require("modules.utils.icons").get("cmp"),
-	}
-
-	local border = function(hl)
-		return {
-			{ "┌", hl },
-			{ "─", hl },
-			{ "┐", hl },
-			{ "│", hl },
-			{ "┘", hl },
-			{ "─", hl },
-			{ "└", hl },
-			{ "│", hl },
-		}
-	end
-
 	local compare = require("cmp.config.compare")
 	compare.lsp_scores = function(entry1, entry2)
 		local diff
@@ -64,18 +45,26 @@ return function()
 			compare.order,
 		}
 
+	local cmp_ui = require("nvconfig").ui.cmp
+	local cmp_style = cmp_ui.style
+	local format_color = require("nvchad.cmp.format")
+	local atom_styled = cmp_style == "atom" or cmp_style == "atom_colored"
+	local fields = (atom_styled or cmp_ui.icons_left) and { "kind", "abbr", "menu" } or { "abbr", "kind", "menu" }
+
 	local cmp = require("cmp")
 	require("cmp").setup({
 		preselect = cmp.PreselectMode.None,
 		window = {
 			completion = {
-				border = border("PmenuBorder"),
-				winhighlight = "Normal:Pmenu,CursorLine:PmenuSel,Search:PmenuSel",
 				scrollbar = false,
+				side_padding = atom_styled and 0 or 1,
+				winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:None,FloatBorder:CmpBorder",
+				border = atom_styled and "none" or "single",
 			},
+
 			documentation = {
-				border = border("CmpDocBorder"),
-				winhighlight = "Normal:CmpDoc",
+				border = "single",
+				winhighlight = "Normal:CmpDoc,FloatBorder:CmpDocBorder",
 			},
 		},
 		sorting = {
@@ -83,49 +72,37 @@ return function()
 			comparators = comparators,
 		},
 		formatting = {
-			fields = { "abbr", "kind", "menu" },
-			format = function(entry, vim_item)
-				local lspkind_icons = vim.tbl_deep_extend("force", icons.kind, icons.type, icons.cmp)
-				-- load lspkind icons
-				vim_item.kind =
-					string.format(" %s  %s", lspkind_icons[vim_item.kind] or icons.cmp.undefined, vim_item.kind or "")
+			format = function(entry, item)
+				local icons = require("nvchad.icons.lspkind")
+				local icon = icons[item.kind] or ""
+				local kind = item.kind or ""
 
-				-- set up labels for completion entries
-				vim_item.menu = setmetatable({
-					cmp_tabnine = "[TN]",
-					marscode = "[MARS]",
-					copilot = "[CPLT]",
-					buffer = "[BUF]",
-					orgmode = "[ORG]",
-					nvim_lsp = "[LSP]",
-					nvim_lua = "[LUA]",
-					path = "[PATH]",
-					tmux = "[TMUX]",
-					treesitter = "[TS]",
-					latex_symbols = "[LTEX]",
-					luasnip = "[SNIP]",
-					spell = "[SPELL]",
-				}, {
-					__index = function()
-						return "[BTN]" -- builtin/unknown source names
-					end,
-				})[entry.source.name]
-
-				-- cut down long results
-				local label = vim_item.abbr
-				local truncated_label = vim.fn.strcharpart(label, 0, 80)
-				if truncated_label ~= label then
-					vim_item.abbr = truncated_label .. "..."
+				if atom_styled then
+					item.menu = kind
+					item.menu_hl_group = "LineNr"
+					item.kind = " " .. icon .. " "
+				elseif cmp_ui.icons_left then
+					item.menu = kind
+					item.menu_hl_group = "CmpItemKind" .. kind
+					item.kind = icon
+				else
+					item.kind = " " .. icon .. " " .. kind
+					item.menu_hl_group = "comment"
 				end
 
-				-- deduplicate results from nvim_lsp
-				if entry.source.name == "nvim_lsp" then
-					vim_item.dup = 0
+				if kind == "Color" and cmp_ui.format_colors.lsp then
+					format_color.lsp(entry, item, (not (atom_styled or cmp_ui.icons_left) and kind) or "")
 				end
 
-				return vim_item
+				if #item.abbr > cmp_ui.abbr_maxwidth then
+					item.abbr = string.sub(item.abbr, 1, cmp_ui.abbr_maxwidth) .. "…"
+				end
+
+				return item
 			end,
+			fields = fields,
 		},
+
 		matching = {
 			disallow_partial_fuzzy_matching = false,
 		},
