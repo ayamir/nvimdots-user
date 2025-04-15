@@ -14,7 +14,14 @@ mappings["lsp"] = function(buf)
 			:with_noremap()
 			:with_nowait()
 			:with_silent()
+			:with_buffer(buf)
 			:with_desc("tool: Lsp symbols"),
+		["n|gT"] = map_cr("Lspsaga goto_type_definition")
+			:with_noremap()
+			:with_nowait()
+			:with_silent()
+			:with_buffer(buf)
+			:with_desc("lsp: Goto type definition"),
 	}
 end
 
