@@ -108,12 +108,6 @@ return function()
 				initial_tab = 1,
 				tabs = {
 					{
-						name = "Colorschemes",
-						tele_func = function()
-							builtin.colorscheme({ enable_preview = true })
-						end,
-					},
-					{
 						name = "Notify",
 						tele_func = function()
 							extensions.notify.notify()
