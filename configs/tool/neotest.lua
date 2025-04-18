@@ -29,6 +29,7 @@ return function()
 
 		adapters = {
 			require("neotest-golang")(gotest_cfg),
+			require("neotest-rust"),
 		},
 	})
 end

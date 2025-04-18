@@ -12,6 +12,7 @@ tool["nvim-neotest/neotest"] = {
 		"antoinemadec/FixCursorHold.nvim",
 		"nvim-treesitter/nvim-treesitter",
 		"fredrikaverpil/neotest-golang",
+		"rouge8/neotest-rust",
 	},
 	config = require("user.configs.tool.neotest"),
 }
