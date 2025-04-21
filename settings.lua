@@ -32,9 +32,20 @@ settings["disabled_plugins"] = {
 	"folke/flash.nvim",
 }
 
-settings["lsp_deps"] = {
-	"typos_lsp",
-}
+settings["lsp_deps"] = function()
+	return {
+		"gopls",
+		"typos_lsp",
+		"lua_ls",
+	}
+end
+
+settings["null_ls_deps"] = function()
+	return {
+		"gofumpt",
+		"goimports",
+	}
+end
 
 settings["gui_config"] = {
 	font_name = "JetBrainsMono Nerd Font",
