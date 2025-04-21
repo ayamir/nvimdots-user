@@ -1,13 +1,4 @@
 return function()
-	local gotest_cfg = { -- Specify configuration
-		go_test_args = {
-			"-v",
-			"-race",
-			"-count=1",
-			"-timeout=60s",
-			"-gcflags=all=-l",
-		},
-	}
 	require("neotest").setup({
 		status = {
 			enabled = true,
@@ -28,8 +19,21 @@ return function()
 		},
 
 		adapters = {
-			require("neotest-golang")(gotest_cfg),
-			require("neotest-rust"),
+			require("neotest-golang")({ -- Specify configuration
+				go_test_args = {
+					"-v",
+					"-race",
+					"-count=1",
+					"-timeout=60s",
+					"-gcflags=all=-l",
+				},
+			}),
+			require("neotest-rust")({
+				args = {
+					"--success-output final",
+					"--failure-output final",
+				},
+			}),
 		},
 	})
 end
