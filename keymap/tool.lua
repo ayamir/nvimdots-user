@@ -11,6 +11,13 @@ return {
 		:with_nowait()
 		:with_silent()
 		:with_desc("test: test current case"),
+	["n|<leader>td"] = map_callback(function()
+			require("neotest").run.run({ strategy = "dap" })
+		end)
+		:with_noremap()
+		:with_nowait()
+		:with_silent()
+		:with_desc("test: test current case"),
 	["n|<leader>tf"] = map_callback(function()
 			require("neotest").run.run(vim.fn.expand("%"))
 		end)
