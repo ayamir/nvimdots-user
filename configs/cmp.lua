@@ -74,7 +74,7 @@ return function()
 		formatting = {
 			format = function(entry, item)
 				local lspkind_icons = vim.tbl_deep_extend("force", icons.kind, icons.type, icons.cmp)
-				item.kind = string.format(" %s  %s", lspkind_icons[item.kind] or icons.cmp.undefined, item.kind or "")
+				item.kind = string.format("%s ", lspkind_icons[item.kind] or icons.cmp.undefined)
 
 				-- set up labels for completion entries
 				item.menu = setmetatable({
