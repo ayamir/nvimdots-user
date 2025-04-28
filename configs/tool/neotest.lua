@@ -33,6 +33,7 @@ return function()
 					"--success-output final",
 					"--failure-output final",
 				},
+				dap_adapter = "codelldb",
 			}),
 		},
 	})

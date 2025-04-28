@@ -51,12 +51,6 @@ return function()
 			compare.order,
 		}
 
-	local cmp_ui = require("nvconfig").ui.cmp
-	local cmp_style = cmp_ui.style
-	local format_color = require("nvchad.cmp.format")
-	local atom_styled = cmp_style == "atom" or cmp_style == "atom_colored"
-	local fields = (atom_styled or cmp_ui.icons_left) and { "kind", "abbr", "menu" } or { "abbr", "kind", "menu" }
-
 	local cmp = require("cmp")
 	require("cmp").setup({
 		preselect = cmp.PreselectMode.None,
@@ -79,29 +73,40 @@ return function()
 		},
 		formatting = {
 			format = function(entry, item)
-				local icons = require("nvchad.icons.lspkind")
-				local icon = icons[item.kind] or ""
-				local kind = item.kind or ""
+				local lspkind_icons = vim.tbl_deep_extend("force", icons.kind, icons.type, icons.cmp)
+				item.kind = string.format("%s ", lspkind_icons[item.kind] or icons.cmp.undefined)
 
-				if atom_styled then
-					item.menu = kind
-					item.menu_hl_group = "LineNr"
-					item.kind = " " .. icon .. " "
-				elseif cmp_ui.icons_left then
-					item.menu = kind
-					item.menu_hl_group = "CmpItemKind" .. kind
-					item.kind = icon
-				else
-					item.kind = " " .. icon .. " " .. kind
-					item.menu_hl_group = "comment"
+				-- set up labels for completion entries
+				item.menu = setmetatable({
+					cmp_tabnine = "[TN]",
+					copilot = "[CPLT]",
+					buffer = "[BUF]",
+					orgmode = "[ORG]",
+					nvim_lsp = "[LSP]",
+					nvim_lua = "[LUA]",
+					path = "[PATH]",
+					tmux = "[TMUX]",
+					treesitter = "[TS]",
+					latex_symbols = "[LTEX]",
+					luasnip = "[SNIP]",
+					spell = "[SPELL]",
+					marscode = "[MARS]",
+				}, {
+					__index = function()
+						return "[BTN]" -- builtin/unknown source names
+					end,
+				})[entry.source.name]
+
+				-- cut down long results
+				local label = item.abbr
+				local truncated_label = vim.fn.strcharpart(label, 0, 80)
+				if truncated_label ~= label then
+					item.abbr = truncated_label .. "..."
 				end
 
-				if kind == "Color" and cmp_ui.format_colors.lsp then
-					format_color.lsp(entry, item, (not (atom_styled or cmp_ui.icons_left) and kind) or "")
-				end
-
-				if #item.abbr > cmp_ui.abbr_maxwidth then
-					item.abbr = string.sub(item.abbr, 1, cmp_ui.abbr_maxwidth) .. "…"
+				-- deduplicate results from nvim_lsp
+				if entry.source.name == "nvim_lsp" then
+					item.dup = 0
 				end
 
 				-- deduplicate results from nvim_lsp
@@ -111,7 +116,7 @@ return function()
 
 				return item
 			end,
-			fields = fields,
+			fields = { "kind", "abbr", "menu" },
 		},
 		matching = {
 			disallow_partial_fuzzy_matching = false,

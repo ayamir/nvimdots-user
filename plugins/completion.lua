@@ -15,6 +15,13 @@ completion["ayamir/garbage-day.nvim"] = {
 		})
 	end,
 }
+completion["Wansmer/symbol-usage.nvim"] = {
+	lazy = true,
+	event = "LspAttach",
+	config = function()
+		require("symbol-usage").setup()
+	end,
+}
 completion["rachartier/tiny-inline-diagnostic.nvim"] = {
 	event = "VeryLazy",
 	priority = 1000, -- needs to be loaded in first
