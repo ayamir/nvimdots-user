@@ -5,6 +5,19 @@ return function()
 		cmp = require("modules.utils.icons").get("cmp"),
 	}
 
+	local border = function(hl)
+		return {
+			{ "┌", hl },
+			{ "─", hl },
+			{ "┐", hl },
+			{ "│", hl },
+			{ "┘", hl },
+			{ "─", hl },
+			{ "└", hl },
+			{ "│", hl },
+		}
+	end
+
 	local compare = require("cmp.config.compare")
 	compare.lsp_scores = function(entry1, entry2)
 		local diff
@@ -56,15 +69,13 @@ return function()
 		preselect = cmp.PreselectMode.None,
 		window = {
 			completion = {
+				border = border("PmenuBorder"),
+				winhighlight = "Normal:Pmenu,CursorLine:PmenuSel,Search:PmenuSel",
 				scrollbar = false,
-				side_padding = 1,
-				winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:None,FloatBorder:CmpBorder",
-				border = "single",
 			},
-
 			documentation = {
-				border = "single",
-				winhighlight = "Normal:CmpDoc,FloatBorder:CmpDocBorder",
+				border = border("CmpDocBorder"),
+				winhighlight = "Normal:CmpDoc",
 			},
 		},
 		sorting = {
