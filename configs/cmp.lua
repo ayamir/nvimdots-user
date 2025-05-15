@@ -72,9 +72,6 @@ return function()
 				border = border("PmenuBorder"),
 				winhighlight = "Normal:Pmenu,CursorLine:PmenuSel,Search:PmenuSel",
 				scrollbar = false,
-				side_padding = 1,
-				winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:None,FloatBorder:CmpBorder",
-				border = "single",
 			},
 			documentation = {
 				border = border("CmpDocBorder"),
