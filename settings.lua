@@ -80,4 +80,23 @@ settings["neovide_config"] = {
 	cursor_vfx_particle_lifetime = 1.2,
 }
 
+settings["chat_models"] = function()
+	return {
+		-- free models
+		"qwen/qwen-2.5-coder-32b-instruct:free", -- default
+		"qwen/qwq-32b:free",
+		"qwen/qwen3-4b:free",
+		"deepseek/deepseek-v3-base:free",
+		"deepseek/deepseek-prover-v2:free",
+		"meta-llama/llama-4-scout:free",
+		-- paid models
+		"anthropic/claude-3.7-sonnet",
+		"openai/codex-mini",
+		"openai/gpt-4o-mini",
+		"google/gemini-2.0-flash-001",
+		"google/gemini-2.5-pro-preview-03-25",
+		"anthropic/claude-3.5-sonnet",
+	}
+end
+
 return settings
