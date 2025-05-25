@@ -1,10 +1,15 @@
 -- Please check `lua/core/settings.lua` to view the full list of configurable settings
 local settings = {}
+local global = require("core.global")
 
 -- Examples
 settings["use_ssh"] = false
 
-settings["use_copilot"] = false
+if global.is_mac then
+	settings["use_copilot"] = false
+else
+	settings["use_copilot"] = true
+end
 
 settings["colorscheme"] = "catppuccin"
 
