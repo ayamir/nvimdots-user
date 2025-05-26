@@ -101,7 +101,7 @@ return function()
 					latex_symbols = "[LTEX]",
 					luasnip = "[SNIP]",
 					spell = "[SPELL]",
-					marscode = "[MARS]",
+					trae = "[TRAE]",
 				}, {
 					__index = function()
 						return "[BTN]" -- builtin/unknown source names
@@ -188,7 +188,7 @@ return function()
 			{ name = "spell" },
 			{ name = "tmux" },
 			{ name = "orgmode" },
-			{ name = "marscode" },
+			{ name = "trae" },
 			{
 				name = "buffer",
 				option = {

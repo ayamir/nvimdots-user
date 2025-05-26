@@ -3,6 +3,8 @@ local options = {
 	autoindent = true,
 	cursorcolumn = false,
 	wrap = true,
+	splitkeep = "cursor",
+	equalalways = true,
 }
 
 return options
