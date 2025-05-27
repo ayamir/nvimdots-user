@@ -5,11 +5,7 @@ local global = require("core.global")
 -- Examples
 settings["use_ssh"] = false
 
-if global.is_mac then
-	settings["use_copilot"] = false
-else
-	settings["use_copilot"] = true
-end
+settings["use_copilot"] = false
 
 settings["colorscheme"] = "catppuccin"
 
