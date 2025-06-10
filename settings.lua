@@ -83,4 +83,6 @@ settings["neovide_config"] = {
 
 settings["search_backend"] = "fzf"
 
+settings["chat_lang"] = "Chinese"
+
 return settings
