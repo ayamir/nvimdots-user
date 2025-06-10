@@ -35,6 +35,7 @@ settings["server_formatting_block_list"] = {
 
 settings["disabled_plugins"] = {
 	"folke/flash.nvim",
+	"romainl/vim-cool",
 }
 
 settings["gui_config"] = {
