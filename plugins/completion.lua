@@ -8,16 +8,16 @@ if global.is_mac then
 		end,
 	}
 end
-completion["ayamir/garbage-day.nvim"] = {
-	lazy = true,
-	event = "LspAttach",
-	config = function()
-		require("modules.utils").load_plugin("garbage-day", {
-			excluded_lsp_clients = { "null-ls" },
-			notifications = true,
-		})
-	end,
-}
+-- completion["ayamir/garbage-day.nvim"] = {
+-- 	lazy = true,
+-- 	event = "LspAttach",
+-- 	config = function()
+-- 		require("modules.utils").load_plugin("garbage-day", {
+-- 			excluded_lsp_clients = { "null-ls" },
+-- 			notifications = true,
+-- 		})
+-- 	end,
+-- }
 completion["Wansmer/symbol-usage.nvim"] = {
 	lazy = true,
 	event = "LspAttach",
