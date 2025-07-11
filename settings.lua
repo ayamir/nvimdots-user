@@ -31,6 +31,7 @@ settings["server_formatting_block_list"] = {
 
 settings["disabled_plugins"] = {
 	"folke/flash.nvim",
+	"romainl/vim-cool",
 }
 
 settings["lsp_deps"] = function()
@@ -93,5 +94,7 @@ settings["neovide_config"] = {
 }
 
 settings["search_backend"] = "fzf"
+
+settings["chat_lang"] = "Chinese"
 
 return settings
