@@ -25,10 +25,6 @@ settings["load_big_files_faster"] = true
 
 settings["lsp_inlayhints"] = true
 
-settings["diagnostics_virtual_text"] = false
-
-settings["diagnostics_virtual_lines"] = false
-
 settings["server_formatting_block_list"] = {
 	gopls = true,
 }
@@ -82,7 +78,7 @@ settings["neovide_config"] = {
 	cursor_vfx_particle_lifetime = 1.2,
 }
 
-settings["search_backend"] = "fzf"
+settings["search_backend"] = "telescope"
 
 settings["chat_lang"] = "Chinese"
 
