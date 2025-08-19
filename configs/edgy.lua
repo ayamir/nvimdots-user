@@ -53,7 +53,7 @@ return function()
 		},
 		bottom = {
 			{ ft = "qf", size = { height = 0.3 } },
-			{ ft = "neotest-output-panel", size = { height = 0.3 } },
+			{ ft = "neotest-output-panel", size = { height = 0.25 } },
 			{
 				ft = "toggleterm",
 				size = { height = 0.3 },

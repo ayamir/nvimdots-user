@@ -78,7 +78,7 @@ settings["neovide_config"] = {
 	cursor_vfx_particle_lifetime = 1.2,
 }
 
-settings["search_backend"] = "telescope"
+settings["search_backend"] = "fzf"
 
 settings["chat_lang"] = "Chinese"
 

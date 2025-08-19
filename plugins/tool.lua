@@ -51,5 +51,22 @@ tool["kawre/leetcode.nvim"] = {
 		},
 	},
 }
+tool["dmtrKovalenko/fff.nvim"] = {
+	lazy = true,
+	event = "VeryLazy",
+	build = "cargo build --release",
+	opts = {
+		-- pass here all the options
+	},
+	keys = {
+		{
+			"<leader>fe", -- try it if you didn't it is a banger keybinding for a picker
+			function()
+				require("fff").find_files() -- or find_in_git_root() if you only want git files
+			end,
+			desc = "Open file picker",
+		},
+	},
+}
 
 return tool
