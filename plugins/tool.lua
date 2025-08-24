@@ -68,5 +68,17 @@ tool["dmtrKovalenko/fff.nvim"] = {
 		},
 	},
 }
+tool["LintaoAmons/bookmarks.nvim"] = {
+	tag = "3.2.0",
+	dependencies = {
+		{ "kkharji/sqlite.lua" },
+		{ "nvim-telescope/telescope.nvim" }, -- currently has only telescopes supported, but PRs for other pickers are welcome
+		{ "stevearc/dressing.nvim" }, -- optional: better UI
+	},
+	config = function()
+		local opts = {} -- check the "./lua/bookmarks/default-config.lua" file for all the options
+		require("bookmarks").setup(opts) -- you must call setup to init sqlite db
+	end,
+}
 
 return tool
