@@ -72,6 +72,9 @@ return function()
 				border = border("PmenuBorder"),
 				winhighlight = "Normal:Pmenu,CursorLine:PmenuSel,Search:PmenuSel",
 				scrollbar = false,
+				side_padding = 1,
+				winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:None,FloatBorder:CmpBorder",
+				border = "single",
 			},
 			documentation = {
 				border = border("CmpDocBorder"),
@@ -83,12 +86,15 @@ return function()
 			comparators = comparators,
 		},
 		formatting = {
-			format = function(entry, item)
+			fields = { "abbr", "kind", "menu" },
+			format = function(entry, vim_item)
 				local lspkind_icons = vim.tbl_deep_extend("force", icons.kind, icons.type, icons.cmp)
-				item.kind = string.format("%s ", lspkind_icons[item.kind] or icons.cmp.undefined)
+				-- load lspkind icons
+				vim_item.kind =
+					string.format(" %s  %s", lspkind_icons[vim_item.kind] or icons.cmp.undefined, vim_item.kind or "")
 
 				-- set up labels for completion entries
-				item.menu = setmetatable({
+				vim_item.menu = setmetatable({
 					cmp_tabnine = "[TN]",
 					copilot = "[CPLT]",
 					buffer = "[BUF]",
@@ -101,7 +107,6 @@ return function()
 					latex_symbols = "[LTEX]",
 					luasnip = "[SNIP]",
 					spell = "[SPELL]",
-					trae = "[TRAE]",
 				}, {
 					__index = function()
 						return "[BTN]" -- builtin/unknown source names
@@ -109,25 +114,19 @@ return function()
 				})[entry.source.name]
 
 				-- cut down long results
-				local label = item.abbr
+				local label = vim_item.abbr
 				local truncated_label = vim.fn.strcharpart(label, 0, 80)
 				if truncated_label ~= label then
-					item.abbr = truncated_label .. "..."
+					vim_item.abbr = truncated_label .. "..."
 				end
 
 				-- deduplicate results from nvim_lsp
 				if entry.source.name == "nvim_lsp" then
-					item.dup = 0
+					vim_item.dup = 0
 				end
 
-				-- deduplicate results from nvim_lsp
-				if entry.source.name == "nvim_lsp" then
-					item.dup = 0
-				end
-
-				return item
+				return vim_item
 			end,
-			fields = { "kind", "abbr", "menu" },
 		},
 		matching = {
 			disallow_partial_fuzzy_matching = false,
