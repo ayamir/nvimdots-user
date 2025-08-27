@@ -1,6 +1,5 @@
 -- Please check `lua/core/settings.lua` to view the full list of configurable settings
 local settings = {}
-local global = require("core.global")
 
 -- Examples
 settings["use_ssh"] = false
