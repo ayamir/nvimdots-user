@@ -21,17 +21,12 @@ settings["load_big_files_faster"] = true
 
 settings["lsp_inlayhints"] = true
 
-settings["diagnostics_virtual_text"] = false
-
-settings["diagnostics_virtual_lines"] = false
-
 settings["server_formatting_block_list"] = {
 	gopls = true,
 }
 
 settings["disabled_plugins"] = {
 	"folke/flash.nvim",
-	"romainl/vim-cool",
 }
 
 settings["lsp_deps"] = function()

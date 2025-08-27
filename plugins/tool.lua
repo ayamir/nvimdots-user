@@ -12,6 +12,7 @@ tool["nvim-neotest/neotest"] = {
 		"antoinemadec/FixCursorHold.nvim",
 		"nvim-treesitter/nvim-treesitter",
 		"fredrikaverpil/neotest-golang",
+		"leoluz/nvim-dap-go",
 		"rouge8/neotest-rust",
 	},
 	config = require("user.configs.tool.neotest"),
@@ -49,6 +50,35 @@ tool["kawre/leetcode.nvim"] = {
 			},
 		},
 	},
+}
+tool["dmtrKovalenko/fff.nvim"] = {
+	lazy = true,
+	event = "VeryLazy",
+	build = "cargo build --release",
+	opts = {
+		-- pass here all the options
+	},
+	keys = {
+		{
+			"<leader>fe", -- try it if you didn't it is a banger keybinding for a picker
+			function()
+				require("fff").find_files() -- or find_in_git_root() if you only want git files
+			end,
+			desc = "Open file picker",
+		},
+	},
+}
+tool["LintaoAmons/bookmarks.nvim"] = {
+	tag = "3.2.0",
+	dependencies = {
+		{ "kkharji/sqlite.lua" },
+		{ "nvim-telescope/telescope.nvim" }, -- currently has only telescopes supported, but PRs for other pickers are welcome
+		{ "stevearc/dressing.nvim" }, -- optional: better UI
+	},
+	config = function()
+		local opts = {} -- check the "./lua/bookmarks/default-config.lua" file for all the options
+		require("bookmarks").setup(opts) -- you must call setup to init sqlite db
+	end,
 }
 
 return tool

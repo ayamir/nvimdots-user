@@ -18,4 +18,5 @@ return {
 		:with_silent()
 		:with_noremap()
 		:with_desc("Spider-b"),
+	["n|<A-a>"] = map_cmd("<C-x>"):with_silent():with_noremap():with_desc("minus number"),
 }
