@@ -32,7 +32,6 @@ settings["disabled_plugins"] = {
 settings["lsp_deps"] = function()
 	return {
 		"gopls",
-		"typos_lsp",
 		"lua_ls",
 	}
 end
