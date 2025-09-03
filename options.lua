@@ -5,6 +5,7 @@ local options = {
 	wrap = true,
 	splitkeep = "cursor",
 	equalalways = true,
+	swapfile = false,
 }
 
 return options
