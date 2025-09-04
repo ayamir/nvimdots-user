@@ -53,6 +53,10 @@ ui["folke/noice.nvim"] = {
 			inc_rename = false, -- enables an input dialog for inc-rename.nvim
 			lsp_doc_border = false, -- add a border to hover docs and signature help
 		},
+		cmdline = {
+			enabled = true,
+			view = "cmdline",
+		},
 	},
 	dependencies = {
 		"MunifTanjim/nui.nvim",
