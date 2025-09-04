@@ -7,4 +7,5 @@ return {
 			api.node.open.horizontal()
 		end, { buffer = bufnr })
 	end,
+	sync_root_with_cwd = false,
 }

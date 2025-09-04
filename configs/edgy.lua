@@ -53,6 +53,14 @@ return function()
 		},
 		bottom = {
 			{ ft = "qf", size = { height = 0.3 } },
+			{
+				ft = "trouble",
+				size = { height = 0.3 },
+				open = function()
+					return vim.b.buftype == "" and "Trouble symbols toggle win.position=bottom"
+				end,
+				filter = trouble_filter("bottom"),
+			},
 			{ ft = "neotest-output-panel", size = { height = 0.25 } },
 			{
 				ft = "toggleterm",
