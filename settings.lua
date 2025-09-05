@@ -26,7 +26,6 @@ settings["server_formatting_block_list"] = {
 
 settings["disabled_plugins"] = {
 	"folke/flash.nvim",
-	"kevinhwang91/nvim-bqf",
 }
 
 settings["lsp_deps"] = function()
@@ -87,7 +86,7 @@ settings["neovide_config"] = {
 	cursor_vfx_particle_lifetime = 1.2,
 }
 
-settings["search_backend"] = "fzf"
+settings["search_backend"] = "telescope"
 
 settings["chat_lang"] = "Chinese"
 
