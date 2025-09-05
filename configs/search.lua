@@ -62,15 +62,22 @@ return function()
 		end
 	end
 
+	local file = {
+		{ "Oldfiles", use_fzf and function()
+			fzf.oldfiles(base_opts)
+		end or builtins.oldfiles },
+		{ "Buffers", builtins.buffers },
+	}
+	if vim.uv.cwd() == vim_path then
+		table.insert(file, 1, { "Files", file_searcher("files", builtins.find_files, true) })
+		table.insert(file, 2, { "Frecency", extensions.frecency.frecency })
+	else
+		table.insert(file, 1, { "Files", require("fff").find_files })
+	end
+
 	-- Tables of pickers
 	local pickers = {
-		file = {
-			{ "Files", require("fff").find_files },
-			{ "Oldfiles", use_fzf and function()
-				fzf.oldfiles(base_opts)
-			end or builtins.oldfiles },
-			{ "Buffers", builtins.buffers },
-		},
+		file = file,
 		pattern = {
 			{ "Word in project", grep_searcher("live_grep", extensions.live_grep_args.live_grep_args) },
 			{ "Word under cursor", grep_searcher("grep_cword", builtins.grep_string) },
