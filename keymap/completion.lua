@@ -20,7 +20,24 @@ mappings["lsp"] = function(buf)
 			:with_silent()
 			:with_buffer(buf)
 			:with_desc("lsp: Goto type definition"),
-		["n|gh"] = map_cu("Lspsaga finder"):with_silent():with_buffer(buf):with_desc("lsp: Show reference"),
+		["n|gh"] = map_callback(function()
+			if use_fzf then
+				require("fzf-lua").lsp_references({
+					fzf_opts = fzf_opts,
+				})
+			else
+				require("telescope.builtin").lsp_references()
+			end
+		end),
+		["n|gm"] = map_callback(function()
+			if use_fzf then
+				require("fzf-lua").lsp_implementations({
+					fzf_opts = fzf_opts,
+				})
+			else
+				require("telescope.builtin").lsp_implementations()
+			end
+		end),
 	}
 end
 
