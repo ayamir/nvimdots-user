@@ -9,7 +9,7 @@ completion["ayamir/garbage-day.nvim"] = {
 	lazy = true,
 	event = "LspAttach",
 	config = function()
-		require("modules.utils").load_plugin("garbage-day", {
+		require("garbage-day").setup({
 			excluded_lsp_clients = { "null-ls" },
 			notifications = true,
 		})
@@ -21,6 +21,12 @@ completion["Wansmer/symbol-usage.nvim"] = {
 	config = function()
 		require("symbol-usage").setup()
 	end,
+}
+completion["ayamir/lspsaga.nvim"] = {
+	lazy = true,
+	event = "LspAttach",
+	config = require("user.configs.completion.lspsaga"),
+	dependencies = "nvim-tree/nvim-web-devicons",
 }
 
 return completion
