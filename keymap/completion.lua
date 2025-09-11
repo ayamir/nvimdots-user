@@ -20,23 +20,39 @@ mappings["lsp"] = function(buf)
 			:with_buffer(buf)
 			:with_desc("lsp: Goto type definition"),
 		["n|gh"] = map_callback(function()
-			if use_fzf then
-				require("fzf-lua").lsp_finder({
-					fzf_opts = fzf_opts,
-				})
-			else
-				require("telescope.builtin").lsp_references()
-			end
-		end),
+				if use_fzf then
+					require("fzf-lua").lsp_finder({
+						fzf_opts = fzf_opts,
+					})
+				else
+					require("telescope.builtin").lsp_references()
+				end
+			end)
+			:with_noremap()
+			:with_nowait()
+			:with_silent()
+			:with_desc("lsp: show finder"),
 		["n|gm"] = map_callback(function()
-			if use_fzf then
-				require("fzf-lua").lsp_implementations({
-					fzf_opts = fzf_opts,
-				})
-			else
-				require("telescope.builtin").lsp_implementations()
-			end
-		end),
+				if use_fzf then
+					require("fzf-lua").lsp_implementations({
+						fzf_opts = fzf_opts,
+					})
+				else
+					require("telescope.builtin").lsp_implementations()
+				end
+			end)
+			:with_noremap()
+			:with_nowait()
+			:with_silent()
+			:with_desc("lsp: show implementations"),
+
+		["n|gy"] = map_callback(function()
+				require("symbol-usage").refresh()
+			end)
+			:with_noremap()
+			:with_nowait()
+			:with_silent()
+			:with_desc("lsp: refresh symbol usage"),
 	}
 end
 
