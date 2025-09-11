@@ -64,12 +64,12 @@ return {
 	["n|<leader>Ld"] = map_cu("Leet desc"):with_noremap():with_nowait():with_silent():with_desc("leetcode: desc"),
 	["n|<leader>Lm"] = map_cu("Leet menu"):with_noremap():with_nowait():with_silent():with_desc("leetcode: menu"),
 
-	["n|mx"] = map_cu("BookmarksQuickMark")
+	["n|mq"] = map_cu("BookmarksQuickMark")
 		:with_noremap()
 		:with_nowait()
 		:with_silent()
 		:with_desc("bookmarks: quick mark"),
-	["n|mX"] = map_cu("BookmarksMark")
+	["n|mx"] = map_cu("BookmarksMark")
 		:with_noremap()
 		:with_nowait()
 		:with_silent()
