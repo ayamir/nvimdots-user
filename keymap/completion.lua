@@ -1,6 +1,5 @@
 local mappings = {}
 local map_cr = require("keymap.bind").map_cr
-local map_cu = require("keymap.bind").map_cu
 local map_callback = require("keymap.bind").map_callback
 local use_fzf = require("core.settings").search_backend == "fzf"
 local prompt_position = require("telescope.config").values.layout_config.horizontal.prompt_position
@@ -22,7 +21,7 @@ mappings["lsp"] = function(buf)
 			:with_desc("lsp: Goto type definition"),
 		["n|gh"] = map_callback(function()
 			if use_fzf then
-				require("fzf-lua").lsp_references({
+				require("fzf-lua").lsp_finder({
 					fzf_opts = fzf_opts,
 				})
 			else
