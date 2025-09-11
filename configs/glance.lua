@@ -1,5 +1,0 @@
-return {
-	folds = {
-		folded = false,
-	},
-}
