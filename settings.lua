@@ -36,13 +36,6 @@ settings["lsp_deps"] = function()
 	}
 end
 
-settings["null_ls_deps"] = function()
-	return {
-		"gofumpt",
-		"goimports",
-	}
-end
-
 settings["gui_config"] = {
 	font_name = "JetBrainsMono Nerd Font",
 	font_size = 13,

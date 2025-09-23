@@ -10,10 +10,9 @@ local function get_binary_path_list(binaries)
 end
 
 return function(options)
-	require("lspconfig").clangd.setup({
+	vim.lsp.config("clangd", {
 		on_attach = options.on_attach,
 		capabilities = vim.tbl_deep_extend("keep", { offsetEncoding = { "utf-16", "utf-8" } }, options.capabilities),
-		single_file_support = true,
 		cmd = {
 			"clangd",
 			"-j=12",
@@ -30,5 +29,6 @@ return function(options)
 			"--limit-references=3000",
 			"--limit-results=350",
 		},
+		single_file = true,
 	})
 end
