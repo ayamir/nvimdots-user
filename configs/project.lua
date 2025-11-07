@@ -3,7 +3,7 @@ return function()
 		manual_mode = false,
 		detection_methods = { "pattern" },
 		patterns = { "=tcc_monorepo", "go.mod", ".git" },
-		silent_chdir = false,
+		silent_chdir = true,
 		ignore_lsp = { "null-ls", "copilot" },
 		exclude_dirs = {},
 		show_hidden = false,
