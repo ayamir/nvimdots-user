@@ -14,9 +14,7 @@ return function()
 			standalone = true,
 			settings = {
 				["rust-analyzer"] = {
-					checkOnSave = {
-						command = "check", -- 保存时跑 clippy（可改成 "check" 或干脆关掉）
-					},
+					checkOnSave = true,
 					files = {
 						excludeDirs = { "target", "node_modules" }, -- 排除无用目录
 					},
