@@ -52,7 +52,6 @@ settings["treesitter_deps"] = function()
 		"html",
 		"javascript",
 		"json",
-		"jsonc",
 		-- "latex",
 		"lua",
 		"make",
