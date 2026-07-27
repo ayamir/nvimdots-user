@@ -31,6 +31,8 @@ tool["fei6409/log-highlight.nvim"] = {
 	config = true,
 }
 tool["nvim-neotest/neotest"] = {
+	lazy = true,
+	cmd = "Neotest",
 	dependencies = {
 		"nvim-neotest/nvim-nio",
 		"nvim-lua/plenary.nvim",
@@ -77,6 +79,23 @@ tool["kawre/leetcode.nvim"] = {
 	},
 }
 tool["ayamir/bookmarks.nvim"] = {
+	lazy = true,
+	cmd = {
+		"BookmarksCommands",
+		"BookmarksDesc",
+		"BookmarksGoto",
+		"BookmarksGotoNext",
+		"BookmarksGotoPrev",
+		"BookmarksGrep",
+		"BookmarksInfo",
+		"BookmarksInfoCurrentBookmark",
+		"BookmarksLists",
+		"BookmarksMark",
+		"BookmarksNewList",
+		"BookmarksQuery",
+		"BookmarksQuickMark",
+		"BookmarksTree",
+	},
 	dependencies = {
 		{ "kkharji/sqlite.lua" },
 		{ "nvim-telescope/telescope.nvim" }, -- currently has only telescopes supported, but PRs for other pickers are welcome
@@ -117,6 +136,8 @@ tool["jake-stewart/normal-cmdline.nvim"] = {
 	end,
 }
 tool["nacro90/numb.nvim"] = {
+	lazy = true,
+	event = "CmdlineEnter",
 	config = function()
 		require("numb").setup()
 	end,

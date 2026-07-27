@@ -7,6 +7,8 @@ return function()
 		exclude_dirs = {},
 		show_hidden = false,
 		scope_chdir = "global",
-		datapath = vim.fn.stdpath("data"),
+		history = {
+			save_dir = vim.fn.stdpath("data"),
+		},
 	})
 end

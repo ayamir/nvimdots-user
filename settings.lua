@@ -6,7 +6,39 @@ settings["use_ssh"] = false
 
 settings["use_copilot"] = false
 
-settings["colorscheme"] = "catppuccin-latte"
+settings["colorscheme"] = "nvchad"
+
+settings["nvchad"] = {
+	theme = "rosepine-dawn",
+	theme_toggle = { "rosepine-dawn", "rosepine" },
+	nvdash = {
+		load_on_startup = true,
+	},
+	ui = {
+		statusline = {
+			enabled = true,
+			theme = "default",
+			separator_style = "default",
+		},
+		tabufline = {
+			enabled = true,
+			lazyload = false,
+		},
+	},
+	term = {
+		base46_colors = true,
+		winopts = { number = false, relativenumber = false },
+		sizes = { sp = 0.3, vsp = 0.3, ["bo sp"] = 0.3, ["bo vsp"] = 0.3 },
+		float = {
+			relative = "editor",
+			row = 0.1,
+			col = 0.1,
+			width = 0.8,
+			height = 0.8,
+			border = "single",
+		},
+	},
+}
 
 settings["format_modifications_only"] = false
 

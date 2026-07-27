@@ -1,6 +1,7 @@
 return function()
 	local vim_path = require("core.global").vim_path
-	local search_backend = require("core.settings").search_backend
+	local settings = require("core.settings")
+	local search_backend = settings.search_backend
 	local use_fzf = search_backend == "fzf"
 	local fzf = use_fzf and require("fzf-lua")
 	local extensions = require("telescope").extensions
@@ -93,6 +94,18 @@ return function()
 			{ "Zoxide", extensions.zoxide.list },
 		},
 		misc = {
+			{
+				"Colorschemes",
+				function(opts)
+					if settings.colorscheme == "nvchad" then
+						require("modules.utils.nvchad_theme").picker(opts)
+						return
+					end
+
+					opts = vim.tbl_extend("force", opts or {}, { enable_preview = true })
+					builtins.colorscheme(opts)
+				end,
+			},
 			{ "Notify", extensions.notify.notify },
 			{ "Undo History", extensions.undo.undo },
 		},
