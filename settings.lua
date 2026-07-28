@@ -12,7 +12,7 @@ settings["nvchad"] = {
 	theme = "rosepine-dawn",
 	theme_toggle = { "rosepine-dawn", "rosepine" },
 	nvdash = {
-		load_on_startup = true,
+		load_on_startup = false,
 	},
 	ui = {
 		statusline = {
@@ -22,7 +22,7 @@ settings["nvchad"] = {
 		},
 		tabufline = {
 			enabled = true,
-			lazyload = false,
+			lazyload = true,
 		},
 	},
 	term = {
